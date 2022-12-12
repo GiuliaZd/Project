@@ -1,0 +1,94 @@
+# My Variables
+@contentType = application/json
+@baseurl = http://localhost:4000/api
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzkzNGQ2OTYyNzVlM2E2NjY2MDhjMzYiLCJpYXQiOjE2NzA1OTc5OTQsImV4cCI6MTY3MDg1NzE5NH0.YiSnX0BvlM5EHNyzxlbCE5OyOkd-_a8TVc0-IPJsNx0
+
+
+### Signup
+POST  {{baseurl}}/user/signup
+Content-Type: {{contentType}}
+
+{
+    "email": "giu@metropolia.fi",
+    "password": "Hellohelsinki2!"
+}
+
+### login
+POST  {{baseurl}}/user/login
+Content-Type: {{contentType}}
+
+{
+    "email": "giu@metropolia.fi",
+    "password": "Hellohelsinki2!"
+}
+
+
+### POST Request
+POST {{baseurl}}/workouts/
+Content-Type: {{contentType}}
+Authorization: bearer {{token}}
+
+{
+    "title":"trip to Berlin",
+    "period":dec2021,
+    "details":smth
+}
+
+### POST Request
+POST {{baseurl}}/workouts/
+Content-Type: {{contentType}}
+Authorization: bearer {{token}}
+
+{
+    "title":"trip to Vienna",
+    "period":april2023,
+    "details":smth
+}
+
+### GET Request
+GET {{baseurl}}/workouts
+Content-Type: {{contentType}}
+Authorization: bearer {{token}}
+
+### GET Request
+GET {{baseurl}}/trips/6386e10ad8e5f9250c33591a
+Content-Type: {{contentType}}
+Authorization: bearer {{token}}
+
+### GET Request (Authorization error)
+GET {{baseurl}}/trips/6379e1849df16cc3df69bcb2
+Content-Type: {{contentType}}
+
+### GET Request (does not exist)
+GET {{baseurl}}/trips/625158890e75b4ff2a109ab9999
+Content-Type: {{contentType}}
+Authorization: bearer {{token}}
+
+
+### DELET Request   (Authorization error)
+DELETE {{baseurl}}/trips/625158890e75b4ff2a109ab9999
+Content-Type: {{contentType}}
+
+### DELET Request
+DELETE {{baseurl}}/trips/6386e10ad8e5f9250c33591a
+Content-Type: {{contentType}}
+Authorization: bearer {{token}}
+
+### DELET Request  (does not exist)
+DELETE {{baseurl}}/trips/6251a0ed1317e5dff269f8aa
+Content-Type: {{contentType}}
+Authorization: bearer {{token}}
+
+### unknown end point
+GET {{baseurl}}/tripsss/15
+Content-Type: {{contentType}}
+
+### PUT  Request
+PATCH {{baseurl}}/trips/6379e2969df16cc3df69bccc
+Content-Type: {{contentType}}
+Authorization: bearer {{token}}
+
+{
+    "period":march2023,
+    "details":smth
+}
